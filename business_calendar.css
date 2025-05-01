@@ -1,0 +1,443 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* 幅の計算を安定させる */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* ヘッダー設定 */
+header {
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ロゴと背景画像 */
+#Soundlogo {
+  max-width: 150px;
+  height: auto;
+}
+
+#header-back {
+  position: absolute;
+  right: 15px;
+  bottom: 20px;
+  width: 200px;
+  height: auto;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* ナビゲーション */
+nav {
+  position: relative;
+  z-index: 9999;
+}
+
+#menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 10001;
+}
+
+#menu li {
+  display: block;
+}
+
+#menu li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+#menu li a:hover {
+  background-color: #333631;
+  color: white;
+}
+
+/* ハンバーガーメニュー */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50px;
+  height: 40px;
+  z-index: 9999;
+  position: absolute;
+  right: 20px;
+  /* 右端に配置 */
+  top: 30px;
+  /* 上からの配置調整 */
+}
+
+.hamburger-menu span {
+  background-color: #333;
+  height: 6px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* 閉じるボタン追加 */
+#close-btn {
+  display: none;
+  font-size: 50px;
+  color: #333;
+  cursor: pointer;
+  position: absolute;
+  top: -188px;
+  right: 180px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  z-index: 1002;
+}
+
+#close-btn:hover {
+  color: red;
+}
+
+/* スマホ・タブレット対応 */
+@media screen and (max-width: 780px) {
+
+
+  /* ヘッダーの修正 */
+  header {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #Soundlogo {
+    max-width: 150px;
+    /* ロゴを中央表示 */
+    margin: 0 auto;
+    /* 中央配置 */
+  }
+
+  #header-back {
+    display: none;
+    /* 背景画像は非表示 */
+  }
+
+  .hamburger-menu {
+    display: flex;
+    /* メニュー表示 */
+    position: absolute;
+    right: 15px;
+    /* 右端に配置 */
+    top: -165px;
+    /* 上からの位置調整 */
+    z-index: 990;
+  }
+
+  nav {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #menu {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: -180px;
+    right: -10px;
+    width: 200px;
+    margin: auto 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  #menu.active {
+    display: flex;
+  }
+
+  #menu li {
+    padding: 10px;
+  }
+
+  #menu li a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 15px;
+  }
+
+  /* h1とh2の中央表示 */
+  h1 {
+    background-color: #ff8c00;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    width: 100vw;
+    /* 幅いっぱい */
+    text-align: center;
+    border-radius: 0;
+  }
+
+  h2 {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+    background-color: #65318e;
+    padding: 10px;
+    width: 100%;
+    /* 幅いっぱい */
+    border-radius: 0;
+  }
+
+  .calendar {
+    width: 100%;
+    padding: 0;
+    /* 余白を削除 */
+  }
+
+  .calendar table {
+    width: 100%;
+    max-width: 100%;
+    /* 幅いっぱいに広げる */
+  }
+
+  .calendar-nav {
+    display: flex;
+    justify-content: center;
+    /* 中央揃え */
+    align-items: center;
+    gap: 30px;
+    /* ボタンと年月表示の間隔 */
+    margin: 40px 0 20px;
+    /* 上下の余白を調整 */
+    width: 100%;
+  }
+
+  .calendar-nav button {
+    padding: 10px 25px;
+    /* ボタンを少し大きく */
+    font-size: 18px;
+    background-color: #65318e;
+    /* ボタン色 */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+
+  .calendar-nav button:hover {
+    background-color: #4a2264;
+    /* ホバー時の色 */
+  }
+
+  #current-month {
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    /* 幅いっぱいに広げる */
+    max-width: 60%;
+    /* 最大幅を画面に合わせる */
+    box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap;
+    /* テキストの折り返しを防ぐ */
+  }
+
+  /* フッター中央表示 */
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  footer p {
+    margin: 10px 0;
+  }
+}
+
+h1 {
+  background-color: #ff8c00;
+  color: white;
+  padding: 20px;
+  margin: 0;
+  border-radius: 10px;
+  z-index: 5;
+}
+
+h2 {
+  font-size: 28px;
+  color: white;
+  text-align: center;
+  margin: 20px 0;
+  /* 文字間隔を広げる */
+  letter-spacing: 2px;
+  background-color: #65318e;
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ✅ カレンダーとモーダル */
+.calendar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 曜日ヘッダーの色設定 */
+.calendar th:nth-child(1) {
+  /* 日曜日 */
+  color: red;
+}
+
+.calendar th:nth-child(7) {
+  /* 土曜日 */
+  color: blue;
+}
+
+.calendar-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  /* ボタンの間隔 */
+  margin-top: 10px;
+  /* 年月表示の下に余白 */
+}
+
+.calendar-nav button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #65318e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.calendar-nav button:hover {
+  background-color: #4a2264;
+}
+
+#current-month {
+  font-size: 28px;
+  color: white;
+  min-width: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.calendar table {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.calendar th,
+.calendar td {
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.calendar td:hover {
+  background-color: #f0f0f0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  margin: 10% auto;
+  width: 80%;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+label {
+  margin: 10px 0;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+}
+
+footer {
+  background-color: #333;
+  color: #f1f1f1;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  border-top: 1px solid #ccc;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 30px;
+}
+
+footer p {
+  margin: 0;
+}

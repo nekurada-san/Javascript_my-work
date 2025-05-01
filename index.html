@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>予定表カレンダー</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="business_calendar.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body style="overflow-x: hidden;">
+  <header>
+    <img src="SounProfessional.png" alt="SoundProfessional" id="Soundlogo">
+    <img src="header.png" alt="背景画像" id="header-back">
+    <nav>
+      <ul id="menu">
+        <li><a href="#" class="maintenance">Top</a></li>
+        <li><a href="#" class="maintenance2">勤怠入力</a></li>
+        <li><a href="index.html">予定表</a></li>
+        <li><a href="#" class="maintenance3">マニュアル</a></li>
+        <li><a href="#" class="maintenance4">社員リスト</a></li>
+        <li><a href="#" class="maintenance5">在庫管理</a></li>
+      </ul>
+      <div id="hamburger" class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div id="close-btn" class="close-btn">&times;</div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>予定表カレンダー</h1>
+
+    <!-- 年月表示とナビゲーションボタン -->
+    <div class="calendar-nav">
+      <h2 id="current-month"></h2>
+      <div class="nav-buttons">
+        <button id="prev-month">◀️ 前月</button>
+        <button id="next-month">次月 ▶️</button>
+      </div>
+    </div>
+    <div class="calendar">
+      <table id="calendar-table">
+        <thead>
+          <tr>
+            <th>日</th>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th>土</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- jsにてカレンダーの日付自動生成 -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="schedule-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>スケジュール</h2>
+        <p id="selected-date"></p>
+        <label for="department">部署:</label>
+        <select id="department" name="department">
+          <option value="">部署を選択してください</option>
+          <option value="sales">営業部</option>
+          <option value="dev">開発部</option>
+          <option value="hr">人事部</option>
+          <option value="se">システム部</option>
+        </select><br>
+        <label for="member">名前:</label>
+        <select id="member" name="member">
+          <option value="">選択してください</option>
+        </select><br>
+        <label>本日の予定: <textarea id="schedule"></textarea></label><br>
+        <button id="btn">保存</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sound Professional. All Rights Reserved.</p>
+  </footer>
+
+  <script src="business_calendar.js" defer></script>
+
+</body>
+
+</html>
